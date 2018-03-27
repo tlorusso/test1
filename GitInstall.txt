@@ -1,0 +1,48 @@
+1. GIT Anlegen
+------------------
+
+Unter C:\ ein Verzeichnis anlegen.
+L:\STAT\01_Post\Cahn\GitPortable_1.9.5.paf.exe in das neue Verzeichnis kopieren und ausführen. Ok bzw. Weiter bis fertig...
+--> es wird ein Ordner mit dem Namen GitPortable erstellt.
+
+Das darin entahltene    GitPortable.exe     starten (dauert beim ersten mal etwas länger)   --> Es öffnet sich ein Linux-Terminal
+
+
+(GitPortable_1.9.5.paf.exe  kann wieder gelöscht werden)
+
+
+
+2. PROXY Einrichten (für Webzugang):
+--------------------------------------------
+(Ev. werden diese Zeilen nicht genutzt, wenn über die W-LAN oder VPN gearbeitet wird. Falls ein Connect nicht möglich ist, diese Zeilen mit # auskommentieren und GitPortable.exe neu starten)
+
+
+C:\DEINVERZEICHNIS\GitPortable\Data\home\.bash_profile    im Notepad   öffnen und folgende Zeilen einfügen, speichern:
+
+export http_proxy=ktzh.igw.services.zh.ch:8080
+export https_proxy=ktzh.igw.services.zh.ch:8080
+
+
+--> GitPortable.exe neu starten
+
+
+
+
+3. GIT Einrichten
+--------------------
+C:\DEINVERZEICHNIS\GitPortable\GitPortable.exe      starten (dauert beim ersten mal etwas länger)   --> Es öffnet sich ein Linux-Terminal
+
+git config --global user.name "Dein Name"
+git config --global user.email dein.name@statistik.ji.zh.ch
+git config --global http.sslVerify false 
+
+
+
+3. GIT Starten / Testen
+-----------------------------
+git clone https://gitlab.com/StatamtKtZuerich/test1.git
+  User: StatamtKtZuerich
+  PW: We1hnachten
+
+
+Es sollte ein Ordner C:\DEINVERZEICHNIS\GitPortable\Data\home\test1 erstellt werden, welcher ein File enthält

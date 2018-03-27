@@ -1,0 +1,78 @@
+EINRICHTEN (Terminal)
+-------------------------
+cd $HOME
+ln -s ../GIT
+git config --global daniel.cahn@statistik.ji.zh.ch "Daniel Cahn"
+
+
+
+MASTER ANLEGEN
+--------------------------------------
+cd GIT
+mkdir -p test-git.git
+cd test-git.git
+git --bare init
+
+
+LOCAL ANLEGEN
+-------------------------------
+cd $HOME
+mkdir -p local-test-git.git
+cd local-test-git.git
+git init
+git remote add test-git /home/GIT/test-git.git
+
+
+FILES EINCHECKEN
+----------------------------
+--> Ein File anlegen (z.B. testfile.txt)
+git add .
+git commit -m -a
+
+AUF MASTER ÜBERTRAGEN (in Branch MASTER)
+-----------------------------------
+git push test-git master
+
+
+VON MASTER HOLEN
+----------------
+git pull test-git master
+
+
+WEITEREN USER EINBINGEN
+------------------------
+cd $HOME
+git clone /home/GIT/test-git.git
+
+
+GIT GUI
+--------------------
+Mit cd in Local Git-Verzeichnis
+X-Ming auf PC starten (Einrichten gemäss L:\STAT\06_DE\80_Diverses\01_Anleitungen\Linux\PuttyXmingEinstellungen.docx)
+git gui &
+unter Edit --> Options... Globale Email Adresse und Name eingeben. 
+
+
+GitLab / GitHub
+---------------
+ssh key erstellen: 
+
+ssh-keygen -t rsa -b 4096 -C "daniel.cahn@statistik.ji.zh.ch"
+eval $(ssh-agent -s)
+ssh-add ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa.pub
+
+--> in GitLab einfügen unter Setttings SSH keys
+
+
+Zugriff Linux:
+git clone git@gitlab.com:StatamtKtZuerich/test1.git
+git push git@gitlab.com:StatamtKtZuerich/test1.git master
+git push origin master
+
+Zugriff PC:
+git clone https://gitlab.com/StatamtKtZuerich/test1.git
+
+
+ssh pwd ändern:
+ssh-keygen -p 
